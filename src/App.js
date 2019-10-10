@@ -14,7 +14,7 @@ class App extends PureComponent{
     images:[],
     loading: true,
     text: '',
-    value: 'people',
+    value: 'animals',
     oceanImages:[],
     flowerImages:[],
     cityImages:[],
@@ -27,7 +27,7 @@ class App extends PureComponent{
     this.searchCities();
   }
 
-  searchOceans = (query="oceans", page=4)=>{
+  searchOceans = (query="oceans", page=18)=>{
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
       .then(response=>response.json())
@@ -61,7 +61,7 @@ class App extends PureComponent{
       });
   }
 
-  searchCities = (query="cities", page=20)=>{
+  searchCities = (query="cities", page=22)=>{
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
       .then(response=>response.json())

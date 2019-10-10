@@ -2,9 +2,16 @@ body {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   color: #3f4850;
+  background-color: lightgreen;
 }
-
+h1{
+  font-family: 'Barlow', sans-serif;
+  letter-spacing: 8px;
+  font-size: 3em;
+}
 h2 {
+  font-family: 'Barlow', sans-serif;
+  letter-spacing: 2px;
   font-size: 2em;
   margin: 52px 0 40px;
   text-transform: capitalize;
@@ -117,7 +124,7 @@ input {
     display: flex;
     justify-content: center;
   }
-  
+
   .main-nav li {
     margin: 10px;
     width: 100px;
