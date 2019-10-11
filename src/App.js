@@ -1,13 +1,14 @@
 import React, {PureComponent} from 'react';
-import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //Import Components
-import MainContainer from './components/MainContainer'
-import apiKey from './config.js';
-
+import MainContainer from './components/MainContainer';
 import NotFound from './components/NotFound';
 
+//Import config file
+import apiKey from './config.js';
+
+//The app component contains all routes and is responsible for fetching the photos.
 
 class App extends PureComponent{
   state={
@@ -19,7 +20,9 @@ class App extends PureComponent{
     flowerImages:[],
     cityImages:[],
   }
-
+/*
+  When the application is loaded for the first time it requests all images for all routes
+*/
   componentDidMount(){
     this.search();
     this.searchOceans();
@@ -27,6 +30,7 @@ class App extends PureComponent{
     this.searchCities();
   }
 
+  //Api request for ocean images
   searchOceans = (query="oceans", page=18)=>{
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
@@ -44,6 +48,7 @@ class App extends PureComponent{
       });
   }
 
+//Api request for flower images
   searchFlowers = (query="flowers", page=1)=>{
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
@@ -61,6 +66,7 @@ class App extends PureComponent{
       });
   }
 
+//Api request for cities images
   searchCities = (query="cities", page=22)=>{
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
@@ -78,7 +84,8 @@ class App extends PureComponent{
       });
   }
 
-
+//This method searches for animal photos when the site is first loaded and is also invoked everytime the user submits a search request.
+//the loading state is set to false after the program fetches the data it needs.
   search = (query = this.state.value, page = 1) => {
     this.setState({loading:true});
     fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&page=${page}&per_page=24&api_key=${apiKey}&tags=${query}&format=json&nojsoncallback=1`)
@@ -98,8 +105,12 @@ class App extends PureComponent{
       });
   }
 
+  /*
+    Creates 5 routes ("/", "search/...", "/oceans", "/flowers", "/cities")
+    Loads MainContainer with the corresponding images
+  */
   render(){
-    if(this.state.images){
+
       return(
         <BrowserRouter>
             <Switch>
@@ -180,13 +191,9 @@ class App extends PureComponent{
             </Switch>
         </BrowserRouter>
       )
-    }
+
   };
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("root")
-)
 
 export default App;

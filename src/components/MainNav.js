@@ -11,8 +11,6 @@ const MainNav = (props) => {
         <li><NavLink to="/cities" activeStyle={{background: 'tomato'}}>Cities</NavLink></li>
       </ul>
     </nav>
-
-
   );
 }
 

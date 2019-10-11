@@ -5,10 +5,15 @@ class SearchForm extends Component{
     inputText: ''
   }
 
+//updates state
   onInputChange = (event) => {
     return this.setState({inputText: event.target.value});
   }
 
+/*
+  calls the onSearch method passed to props. Uses the state.inputText as first argument and a random number as second argument.
+  updates url on every request.
+*/
   handleSubmit = (event ) => {
     event.preventDefault();
     this.props.onSearch(this.state.inputText, Math.ceil(Math.random() * 100));
@@ -17,7 +22,11 @@ class SearchForm extends Component{
     event.currentTarget.reset();
 
   }
-
+/*
+  Renders search bar.
+  Calls handleSubmit when user clicks on search or hits enter.
+  Call onInputChange when user types something on the search bar.
+*/
   render(){
     return(
     <form className="search-form" onSubmit = {this.handleSubmit} >

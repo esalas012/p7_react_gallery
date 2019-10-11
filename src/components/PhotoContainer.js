@@ -1,6 +1,9 @@
 import React from 'react';
+
+//imports photo component
 import Photo from './Photo';
 
+//passes the url and key props to the Photo Component and displays results.
 const PhotoContainer = (props) => {
   let results= props.images;
   let photos = results.map(photo =>{

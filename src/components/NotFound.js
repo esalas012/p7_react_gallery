@@ -1,7 +1,10 @@
 import React from 'react';
+
+//import components
 import SearchForm from './SearchForm';
 import MainNav from './MainNav';
 
+//if no route is found the Notfound component is rendered.
 const NotFound = (props) => {
   return(
     <div className="container">

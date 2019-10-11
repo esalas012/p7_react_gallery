@@ -1,9 +1,12 @@
 import React from 'react';
 
+//import components
 import SearchForm from './SearchForm';
 import MainNav from './MainNav';
 import PhotoContainer from './PhotoContainer';
 
+
+//Groups all components into one. Displays photocontainer if the program finds any results.
 const MainContainer = (props) => {
   return(
     <div className="container">
