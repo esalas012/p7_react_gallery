@@ -1,3 +1,23 @@
+#React Photo Gallery
+As part of TeamTreehouse Techdegree, I built a photo gallery that requests photo from
+the Flickr API using React.
+
+To use this application you will need a config.js file with a ficker api key.
+Sample config file should look like this:
+  const apiKey = "your api key";
+  export default apiKey;
+The config.js file should be store in the src file.
+
+Once you have a config file, run "npm install" to download node_modules.
+Then run "npm start"
+
+To make this project my own, I:
+  changed the background color of the application
+  used a different font from Google fonts
+  changed the letter spacing
+  changed NavLink active color
+***********
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
