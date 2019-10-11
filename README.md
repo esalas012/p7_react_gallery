@@ -1,4 +1,4 @@
-#React Photo Gallery
+# React Photo Gallery
 As part of TeamTreehouse Techdegree, I built a photo gallery that requests photo from
 the Flickr API using React.
 
